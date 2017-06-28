@@ -6,44 +6,35 @@ public class EnemyController : MonoBehaviour {
 
     private int HP = 10;
 
-    private int next = 1;
+
+    private Vector3 direction;
 
 	// Use this for initialization
 	void Start () {
-        Invoke("MoveToNextWayPoint", 1);
+        direction = new Vector3(-0.01f, 0, 0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        transform.Translate(direction);
 	}
 
-    private void MoveToNextWayPoint()
+
+
+    public void ChangeDirection(int direction)
     {
-        if (next == 13)
-            return;
-
-        string point = "point" + next;
-        Debug.Log(point);
-
-        float step = .1f;
-        Vector2 destination = GameObject.Find(point).gameObject.transform.position;
-
-        
-        transform.position = Vector2.MoveTowards(transform.position, destination, step);
-        
-
-        next++;
-        Invoke("MoveToNextWayPoint", 1);
-    }
-
-    private void Wait()
-    {
-        // dead function
+        switch (direction)
+        {
+            case "left":
+                direction = new Vector3(-0.01f, 0, 0);
+        }
     }
 
     public int GetHP()
     {
         return HP;
     }
+
+
+
 }
