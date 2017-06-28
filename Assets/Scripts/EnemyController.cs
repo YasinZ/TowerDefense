@@ -21,12 +21,25 @@ public class EnemyController : MonoBehaviour {
 
 
 
-    public void ChangeDirection(int direction)
+    public void ChangeDirection(int direct)
     {
-        switch (direction)
+        switch (direct)
         {
-            case "left":
+            case 0: // Up
+                break;
+            case 1: // Right
+                direction = new Vector3(0.01f, 0, 0);
+                break;
+            case 2: // Down
+                direction = new Vector3(0, -0.01f, 0);
+                break;
+            case 3: // Left
                 direction = new Vector3(-0.01f, 0, 0);
+                break;
+            case 4: // Done
+                break;
+            default:
+                break;
         }
     }
 
