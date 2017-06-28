@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        direction = new Vector3(-0.01f, 0, 0);
+        direction = new Vector3(0, -0.01f, 0);
 	}
 	
 	// Update is called once per frame

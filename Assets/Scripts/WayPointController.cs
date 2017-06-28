@@ -8,6 +8,7 @@ public class WayPointController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.name);
         other.GetComponent<EnemyController>().ChangeDirection(direction);
     }
 }
