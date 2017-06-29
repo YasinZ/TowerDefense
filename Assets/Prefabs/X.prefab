@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4514663173042590}
   - component: {fileID: 212075348762972152}
-  - component: {fileID: 114166468266657018}
   - component: {fileID: 61469451489247008}
   m_Layer: 0
   m_Name: X
@@ -67,20 +66,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &114166468266657018
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1929678041328312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdbaa628d5ded5b4eac7e1d1a540a762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerPlacement: {fileID: 0}
-  trianglePrefab: {fileID: 1728260123111668, guid: 2d8dc4aa05202b84badbdeed72f3cfe8,
-    type: 2}
 --- !u!212 &212075348762972152
 SpriteRenderer:
   m_ObjectHideFlags: 1

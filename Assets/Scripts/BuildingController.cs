@@ -18,13 +18,25 @@ public class BuildingController : MonoBehaviour {
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(touch.position), Vector2.zero);
 
-                if (hit && hit.collider.gameObject.CompareTag("X"))
+               
+                for(int i = 0; i < 3; i++)
                 {
-                    Debug.Log("hereadfssdf");
-                    Instantiate(trianglePrefab, hit.collider.gameObject.transform.position, Quaternion.identity);
-                    Destroy(gameObject);
+                    if(hit && hit.collider.gameObject.CompareTag("X"))
+                    {
+                        Debug.Log("hereadfssdf");
+                        Instantiate(trianglePrefab, hit.collider.gameObject.transform.position, Quaternion.identity);
+                        Destroy(hit.collider.gameObject);
+                        
+                    }
+             
                 }
-                   
+
+                //if (hit && hit.collider.gameObject.CompareTag("X"))
+                //{
+                //    Debug.Log("hereadfssdf");
+                //    Instantiate(trianglePrefab, hit.collider.gameObject.transform.position, Quaternion.identity);
+                //    Destroy(gameObject);
+                //}
 
             }
     }
