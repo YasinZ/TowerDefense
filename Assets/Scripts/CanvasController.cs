@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CanvasController : MonoBehaviour {
 
@@ -21,14 +22,16 @@ public class CanvasController : MonoBehaviour {
         tTurnCounter.text = "" + turnCounter;
         tMoney.text = "" + money;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void TakeDamange()
     {
+        health--;
 
+        if(health == 0)
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
+                
+        tHealth.text = "" + health;
     }
 }

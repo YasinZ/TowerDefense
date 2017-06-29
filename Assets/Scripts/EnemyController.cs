@@ -5,12 +5,15 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
     private int HP = 10;
+    public GameObject canvas;
 
 
     private Vector3 direction;
 
 	// Use this for initialization
 	void Start () {
+        canvas = GameObject.FindWithTag("Canvas");
+
         direction = new Vector3(0, -0.01f, 0);
 	}
 	
@@ -38,6 +41,7 @@ public class EnemyController : MonoBehaviour {
                 break;
             case 4: // Done
                 Destroy(gameObject, 0);
+                canvas.GetComponent<CanvasController>().TakeDamange();
                 break;
             default:
                 break;
