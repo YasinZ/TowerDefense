@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour {
                 direction = new Vector3(-0.01f, 0, 0);
                 break;
             case 4: // Done
+                Destroy(gameObject, 0);
                 break;
             default:
                 break;
