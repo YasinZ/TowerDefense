@@ -11,7 +11,7 @@ public class WayPointController : MonoBehaviour {
     {
         Debug.Log(other.name);
         obj = other;
-        Invoke("Change", 1);
+        Invoke("Change", .5f);
     }
 
     void Change()
