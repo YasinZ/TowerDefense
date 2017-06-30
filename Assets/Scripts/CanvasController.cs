@@ -14,7 +14,7 @@ public class CanvasController : MonoBehaviour {
 
     private bool gameActive = false;
     private int health = 5;
-    private int money  = 100;
+    private int money  = 200;
     private int turnCounter = 0;
 
 	// Use this for initialization
@@ -37,15 +37,29 @@ public class CanvasController : MonoBehaviour {
         tHealth.text = "" + health;
     }
 
-    public void BuildTower01()
+    public void BuildTowerTriangle()
     {
-        money -= 10;
+        money -= 50;
         tMoney.text = "" + money;
     }
 
-    public bool CanBuildTower01()
+    public void BuildTowerPentagon()
     {
-        if (money > 9)
+        money -= 150;
+        tMoney.text = "" + money;
+    }
+
+    public bool CanBuildTowerTriangle()
+    {
+        if (money > 49)
+            return true;
+
+        return false;
+    }
+
+    public bool CanBuildTowerPentagon()
+    {
+        if (money > 149)
             return true;
 
         return false;

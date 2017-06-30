@@ -711,10 +711,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbaa628d5ded5b4eac7e1d1a540a762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPlacement: {fileID: 0}
+  pentagonPrefab: {fileID: 1501241672826646, guid: e76a4ae702929d54298abb29a16a2aaf,
+    type: 2}
   trianglePrefab: {fileID: 1728260123111668, guid: 2d8dc4aa05202b84badbdeed72f3cfe8,
     type: 2}
-  canvas: {fileID: 0}
+  canvas: {fileID: 1441929290}
 --- !u!1001 &212802237
 Prefab:
   m_ObjectHideFlags: 0

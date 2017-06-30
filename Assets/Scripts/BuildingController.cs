@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildingController : MonoBehaviour {
-    public GameObject towerPlacement;
+    public GameObject pentagonPrefab;
     public GameObject trianglePrefab;
     public GameObject canvas;
 
@@ -22,11 +22,18 @@ public class BuildingController : MonoBehaviour {
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(touch.position), Vector2.zero);
               
-                if(hit && hit.collider.gameObject.CompareTag("X") && canvasController.CanBuildTower01())
+                if(hit && hit.collider.gameObject.CompareTag("X") && canvasController.CanBuildTowerTriangle())
                 {
                     Instantiate(trianglePrefab, hit.collider.gameObject.transform.position, Quaternion.identity);
                     Destroy(hit.collider.gameObject);
-                    canvasController.BuildTower01();
+                    canvasController.BuildTowerTriangle();
+                }
+
+                if(hit && hit.collider.gameObject.CompareTag("Triangle") && canvasController.CanBuildTowerPentagon())
+                {
+                    Instantiate(pentagonPrefab, hit.collider.gameObject.transform.position, Quaternion.identity);
+                    Destroy(hit.collider.gameObject);
+                    canvasController.BuildTowerPentagon();
                 }
              
 
