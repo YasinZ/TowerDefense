@@ -12,6 +12,7 @@ TagManager:
   - Next
   - Spawnpoint
   - Pentagon
+  - Bullet
   layers:
   - Default
   - TransparentFX
