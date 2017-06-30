@@ -5,16 +5,26 @@ using UnityEngine;
 public class SpawnController : MonoBehaviour {
 
     public GameObject enemy;
+    public GameObject canvas;
 
-	// Use this for initialization
-	void Start () {
-        InvokeRepeating("SpawnEnemy", 2, 1);
+    private CanvasController canvasController;
+
+    // Use this for initialization
+    void Start () {
+        canvas = GameObject.FindWithTag("Canvas");
+        canvasController = canvas.GetComponent<CanvasController>();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        
+    }
+
+    public void StartSpawning()
+    {
+        InvokeRepeating("SpawnEnemy", .5f, 1);
+    }
 
     void SpawnEnemy()
     {

@@ -5,11 +5,15 @@ using UnityEngine;
 public class BuildingController : MonoBehaviour {
     public GameObject towerPlacement;
     public GameObject trianglePrefab;
+    public GameObject canvas;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private CanvasController canvasController;
+
+    // Use this for initialization
+    void Start () {
+        canvas = GameObject.FindWithTag("Canvas");
+        canvasController = canvas.GetComponent<CanvasController>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -17,26 +21,14 @@ public class BuildingController : MonoBehaviour {
             if (touch.phase == TouchPhase.Began)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(touch.position), Vector2.zero);
-
-               
-                for(int i = 0; i < 3; i++)
+              
+                if(hit && hit.collider.gameObject.CompareTag("X") && canvasController.CanBuildTower01())
                 {
-                    if(hit && hit.collider.gameObject.CompareTag("X"))
-                    {
-                        Debug.Log("hereadfssdf");
-                        Instantiate(trianglePrefab, hit.collider.gameObject.transform.position, Quaternion.identity);
-                        Destroy(hit.collider.gameObject);
-                        
-                    }
-             
+                    Instantiate(trianglePrefab, hit.collider.gameObject.transform.position, Quaternion.identity);
+                    Destroy(hit.collider.gameObject);
+                    canvasController.BuildTower01();
                 }
-
-                //if (hit && hit.collider.gameObject.CompareTag("X"))
-                //{
-                //    Debug.Log("hereadfssdf");
-                //    Instantiate(trianglePrefab, hit.collider.gameObject.transform.position, Quaternion.identity);
-                //    Destroy(gameObject);
-                //}
+             
 
             }
     }

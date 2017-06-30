@@ -11,6 +11,8 @@ public class CanvasController : MonoBehaviour {
     public Text tNext;
     public Text tTurnCounter;
 
+
+    private bool gameActive = false;
     private int health = 5;
     private int money  = 100;
     private int turnCounter = 0;
@@ -18,7 +20,7 @@ public class CanvasController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         tHealth.text = "" + health;
-        tNext.text = "Next";
+        tNext.text = "Start";
         tTurnCounter.text = "" + turnCounter;
         tMoney.text = "" + money;
 	}
@@ -33,5 +35,33 @@ public class CanvasController : MonoBehaviour {
         }
                 
         tHealth.text = "" + health;
+    }
+
+    public void BuildTower01()
+    {
+        money -= 10;
+        tMoney.text = "" + money;
+    }
+
+    public bool CanBuildTower01()
+    {
+        if (money > 9)
+            return true;
+
+        return false;
+    }
+
+    public bool IsGameActive()
+    {
+        return gameActive;
+    }
+
+    public void StartGame()
+    {
+        if (gameActive)
+            return;
+
+        gameActive = true;
+        GameObject.FindWithTag("Spawnpoint").GetComponent<SpawnController>().StartSpawning();
     }
 }

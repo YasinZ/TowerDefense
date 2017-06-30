@@ -9,6 +9,8 @@ TagManager:
   - Square
   - Triangle
   - Canvas
+  - Next
+  - Spawnpoint
   layers:
   - Default
   - TransparentFX

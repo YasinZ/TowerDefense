@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
-
-    private int HP = 10;
     public GameObject canvas;
 
-
+    private int HP = 10;
     private Vector3 direction;
 
 	// Use this for initialization
