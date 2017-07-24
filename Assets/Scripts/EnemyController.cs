@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
     public GameObject canvas;
+    public int index;
 
     private int HP = 10;
     private Vector3 direction;
+    private CanvasController canvasController;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         canvas = GameObject.FindWithTag("Canvas");
+        canvasController = canvas.GetComponent<CanvasController>();
 
         direction = new Vector3(0, -0.01f, 0);
 	}
@@ -39,7 +42,7 @@ public class EnemyController : MonoBehaviour {
                 break;
             case 4: // Done
                 Destroy(gameObject, 0);
-                canvas.GetComponent<CanvasController>().TakeDamange();
+                canvasController.TakeDamage();
                 break;
             default:
                 break;
@@ -51,6 +54,17 @@ public class EnemyController : MonoBehaviour {
         return HP;
     }
 
+    public void TakeDamange(int dmg)
+    {
+        HP -= dmg;
+        if (HP < 1)
+            Die();
+    }
 
+    void Die()
+    {
+        Destroy(gameObject);
+        canvasController.IncreaseBalance();
+    }
 
 }

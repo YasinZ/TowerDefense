@@ -8,6 +8,7 @@ public class SpawnController : MonoBehaviour {
     public GameObject canvas;
 
     private CanvasController canvasController;
+    private int counter = 0;
 
     // Use this for initialization
     void Start () {
@@ -28,6 +29,7 @@ public class SpawnController : MonoBehaviour {
 
     void SpawnEnemy()
     {
-        Instantiate(enemy, gameObject.transform.position, Quaternion.identity);
+        GameObject enemyObj = Instantiate(enemy, gameObject.transform.position, Quaternion.identity);
+        enemyObj.GetComponent<EnemyController>().index = counter++;
     }
 }

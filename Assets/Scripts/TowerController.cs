@@ -42,18 +42,20 @@ public class TowerController : MonoBehaviour {
     void Shoot()
     {
         bulletCreated = Instantiate(bullet, transform.position, Quaternion.identity);
+        bulletCreated.GetComponent<BulletController>().setFollowIndex(obj.GetComponent<EnemyController>().index);
+
+        if (gameObject.CompareTag("Triangle"))
+            bulletCreated.GetComponent<BulletController>().SetDamage(2);
+
+        if (gameObject.CompareTag("Pentagon"))
+            bulletCreated.GetComponent<BulletController>().SetDamage(5);
+            
+
         //bulletCreated.transform.LookAt(obj.transform);
         //Invoke("FollowTarget", 1);
 
     }
 
-    void FollowTarget()
-    {
-        while(bulletCreated.transform.position != obj.transform.position)
-        {
-            bulletCreated.transform.position = Vector2.MoveTowards(bulletCreated.transform.position, obj.transform.position, 0.01f);
-        }
-    }
 
     void EnableShoot()
     {

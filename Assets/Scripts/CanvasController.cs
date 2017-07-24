@@ -25,7 +25,7 @@ public class CanvasController : MonoBehaviour {
         tMoney.text = "" + money;
 	}
 
-    public void TakeDamange()
+    public void TakeDamage()
     {
         health--;
 
@@ -77,5 +77,11 @@ public class CanvasController : MonoBehaviour {
 
         gameActive = true;
         GameObject.FindWithTag("Spawnpoint").GetComponent<SpawnController>().StartSpawning();
+    }
+
+    public void IncreaseBalance()
+    {
+        money += 10;
+        tMoney.text = "" + money;
     }
 }
