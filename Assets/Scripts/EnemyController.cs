@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
     public GameObject canvas;
     public int index;
+    public GameObject healthBar;
 
-    private int HP = 10;
+    private float HP = 4;
+    private float maxHP = 4;
     private Vector3 direction;
     private CanvasController canvasController;
 
@@ -23,7 +25,11 @@ public class EnemyController : MonoBehaviour {
         transform.Translate(direction);
 	}
 
-
+    public void SetHP(float hp)
+    {
+        HP = hp;
+        maxHP = hp;
+    }
 
     public void ChangeDirection(int direct)
     {
@@ -49,7 +55,7 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    public int GetHP()
+    public float GetHP()
     {
         return HP;
     }
@@ -59,6 +65,17 @@ public class EnemyController : MonoBehaviour {
         HP -= dmg;
         if (HP < 1)
             Die();
+        
+        float xPos = -1.2664f - healthBar.transform.localPosition.x;
+        xPos /= 2.0f;
+        xPos -= -1.2664f;
+        xPos *= -1;
+
+        Vector3 pos = new Vector3(xPos, healthBar.transform.localPosition.y, 0);
+        Vector3 scale = new Vector3((healthBar.transform.localScale.x * (HP / maxHP)), healthBar.transform.localScale.x, 0);
+
+        healthBar.transform.localScale = scale;
+        healthBar.transform.localPosition = pos;
     }
 
     void Die()

@@ -18,7 +18,8 @@ public class BulletController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = Vector2.MoveTowards(transform.position, objToFollow.transform.position, 0.05f);
+        if(objToFollow != null)
+            transform.position = Vector2.MoveTowards(transform.position, objToFollow.transform.position, 0.02f);
     }
 
     public void setFollowIndex(int index)
@@ -48,7 +49,7 @@ public class BulletController : MonoBehaviour {
     {
         if(other.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            Destroy(gameObject, .5f);
             other.GetComponent<EnemyController>().TakeDamange(damage);
         }
     }

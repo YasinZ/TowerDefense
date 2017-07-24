@@ -8,6 +8,7 @@ public class SpawnController : MonoBehaviour {
     public GameObject canvas;
 
     private CanvasController canvasController;
+    private float startingHP = 4;
     private int counter = 0;
 
     // Use this for initialization
@@ -31,5 +32,12 @@ public class SpawnController : MonoBehaviour {
     {
         GameObject enemyObj = Instantiate(enemy, gameObject.transform.position, Quaternion.identity);
         enemyObj.GetComponent<EnemyController>().index = counter++;
+        enemyObj.GetComponent<EnemyController>().SetHP(startingHP);
+        IncreaseDifficulty();
+    }
+
+    void IncreaseDifficulty()
+    {
+        startingHP += .5f;
     }
 }
