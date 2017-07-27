@@ -72,7 +72,7 @@ public class EnemyController : MonoBehaviour {
         xPos *= -1;
 
         Vector3 pos = new Vector3(xPos, healthBar.transform.localPosition.y, 0);
-        Vector3 scale = new Vector3((healthBar.transform.localScale.x * (HP / maxHP)), healthBar.transform.localScale.x, 0);
+        Vector3 scale = new Vector3((healthBar.transform.localScale.x * (HP / maxHP)), healthBar.transform.localScale.y, 0);
 
         healthBar.transform.localScale = scale;
         healthBar.transform.localPosition = pos;
